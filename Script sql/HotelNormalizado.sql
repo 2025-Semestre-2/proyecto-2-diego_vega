@@ -257,3 +257,36 @@ CREATE USER usuario1 FOR LOGIN U1;
 
 ALTER ROLE Administrador ADD MEMBER admin1;
 ALTER ROLE Usuario ADD MEMBER usuario1;
+
+-- Búsqueda  por cédula
+CREATE UNIQUE INDEX IX_Cliente_Cedula
+ON Cliente (cedula);
+
+-- Búsqueda por correo
+CREATE UNIQUE INDEX IX_Cliente_Correo
+ON Cliente (correo);
+
+-- Búsqueda por nombre y apellidos
+CREATE INDEX IX_Cliente_Nombre
+ON Cliente (nombre, apellido_1, apellido_2);
+
+-- Búsqueda de habitaciones por tipo
+CREATE INDEX IX_Habitacion_Tipo
+ON Habitacion (idTipo);
+
+-- Disponibilidad de habitaciones
+CREATE INDEX IX_Habitacion_Estado
+ON Habitacion (estado);
+
+-- Búsqueda por tipo de actividad
+CREATE INDEX IX_Actividad_Tipo
+ON Actividad (tipo_actividad);
+
+-- Ordenar o filtrar por precio
+CREATE INDEX IX_Actividad_Precio
+ON Actividad (precio);
+
+-- Búsqueda por nombre
+CREATE INDEX IX_Actividad_Nombre
+ON Actividad (nombre);
+
